@@ -1,0 +1,53 @@
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    --bg: #f3f5fb; --card: #ffffff; --text: #1d2433; --muted: #6b7280;
+    --border: #d5d9e4; --primary: #3b5bdb; --primary-text: #ffffff;
+    --ok-bg: #e6f7ec; --ok-text: #14632f; --err-bg: #fdeaea; --err-text: #9b1c1c;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12151d; --card: #1c212d; --text: #e8ebf3; --muted: #9aa3b5;
+      --border: #333b4d; --primary: #6b86ff; --primary-text: #0f1220;
+      --ok-bg: #12301d; --ok-text: #7be09b; --err-bg: #3a1717; --err-text: #ff9b9b;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12151d; --card: #1c212d; --text: #e8ebf3; --muted: #9aa3b5;
+    --border: #333b4d; --primary: #6b86ff; --primary-text: #0f1220;
+    --ok-bg: #12301d; --ok-text: #7be09b; --err-bg: #3a1717; --err-text: #ff9b9b;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: var(--bg); color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; padding: 16px;
+  }
+  .card {
+    width: 100%; max-width: 400px; background: var(--card);
+    border: 1px solid var(--border); border-radius: 14px; padding: 24px;
+  }
+  h1 { font-size: 1.3rem; margin: 0 0 4px; }
+  .sub { color: var(--muted); font-size: 0.9rem; margin: 0 0 18px; }
+  label { display: block; font-size: 0.85rem; margin: 12px 0 4px; }
+  input {
+    width: 100%; padding: 10px 12px; font-size: 1rem; color: var(--text);
+    background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+  }
+  input:focus { outline: 2px solid var(--primary); border-color: transparent; }
+  button {
+    width: 100%; margin-top: 18px; padding: 11px; font-size: 1rem; cursor: pointer;
+    background: var(--primary); color: var(--primary-text); border: none; border-radius: 8px;
+  }
+  .link { text-align: center; margin-top: 14px; font-size: 0.9rem; color: var(--muted); }
+  .link a { color: var(--primary); cursor: pointer; text-decoration: underline; }
+  .msg { display: none; margin-top: 14px; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; }
+  .msg.ok { display: block; background: var(--ok-bg); color: var(--ok-text); }
+  .msg.err { display: block; background: var(--err-bg); color: var(--err-text); }
+  .hidden { display: none; }
+  .welcome { text-align: center; }
+  .welcome p { color: var(--muted); }
